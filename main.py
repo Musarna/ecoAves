@@ -10,6 +10,8 @@ from transformers import pipeline
 
 warnings.filterwarnings("ignore")
 
+DURACION_MAXIMA_SEGUNDOS = 120
+
 ETIQUETAS_AVE = [
     "Bird",
     "Bird vocalization, bird call, bird song",
@@ -155,6 +157,14 @@ def main() -> None:
         if "error" in info_audio:
             print(f"Error al leer el audio: {info_audio['error']}")
             return
+        
+        if info_audio["duracion_segundos"] > DURACION_MAXIMA_SEGUNDOS:
+            print(
+                f"Error: el audio dura {info_audio['duracion_segundos']} segundos y supera "
+                f"el máximo permitido de {DURACION_MAXIMA_SEGUNDOS} segundos."
+            )
+            return
+
 
         clasificacion = detectar_ave(ruta_audio, clasificador)
 
