@@ -12,14 +12,6 @@ warnings.filterwarnings("ignore")
 
 DURACION_MAXIMA_SEGUNDOS = 120
 
-ETIQUETAS_AVE = [
-    "Bird",
-    "Bird vocalization, bird call, bird song",
-    "Chirp, tweet",
-    "Pigeon, dove",
-    "Crow",
-    "Owl"
-]
 
 CONFIANZA_MINIMA = 15.0
 
